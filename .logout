@@ -1,0 +1,2 @@
+# prevent screen from clearing by aliasing clear
+alias clear=''

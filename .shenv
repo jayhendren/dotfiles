@@ -1,0 +1,13 @@
+# Global aliases and environment settings file
+
+# Set paths
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/local/python/bin:/usr/local/durm/bin:/usr/local/adduser/bin:/usr/local/mysql/bin:$PATH
+export PATH=$HOME/local/bin:$PATH
+
+export MANPATH=$HOME/local/share/man:$MANPATH
+
+# Set aliases
+
+# Source any local environment settings
+if [ -f ~/.shenv-local ]; then source ~/.shenv-local; fi
