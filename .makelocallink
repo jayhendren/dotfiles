@@ -1,0 +1,4 @@
+# create /tmp symlink for local software
+target=~/local
+link=/tmp/.hendrenj-local
+[[ ! -e "$link" ]] && ln -s "$target" "$link"

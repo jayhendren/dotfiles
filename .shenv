@@ -1,5 +1,8 @@
 # Global aliases and environment settings file
 
+# make local link
+. ~/.makelocallink
+
 # Set paths
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=/usr/local/python/bin:/usr/local/durm/bin:/usr/local/adduser/bin:/usr/local/mysql/bin:$PATH
