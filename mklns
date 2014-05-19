@@ -1,0 +1,24 @@
+#!/bin/bash
+
+shopt -s extglob
+shopt -s nullglob
+
+mkln () {
+  [[ -z "$2" ]] && return
+  targetdir="$1"
+  shift
+  ln -svrbt "$targetdir" $@
+  # -r : make link relative, even if absolute paths given
+  # -b : if $link already exists, move existing file to $link~ first
+  # -t DIR : make links in target directory DIR
+}
+
+destdir=~
+
+dotfiles="$(dirname "$0")"/.!(|.|ssh|git)  # all dotfiles/folders except ssh and git
+mkln "$destdir" $dotfiles
+
+if [[ "$(hostname)" != "birdsnest.int.colorado.edu" ]]; then
+  sshdotfiles="$(dirname "$0")"/.ssh/!(.|..)  # now do ssh files
+  mkln "$destdir"/.ssh $sshdotfiles
+fi
