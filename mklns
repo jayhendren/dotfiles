@@ -7,10 +7,10 @@ mkln () {
   [[ -z "$2" ]] && return
   targetdir="$1"
   shift
-  ln -svrbt "$targetdir" $@
-  # -r : make link relative, even if absolute paths given
+  ln -svb --target-directory="$targetdir" $@
+  # -r : make link relative, even if absolute paths given (removed)
   # -b : if $link already exists, move existing file to $link~ first
-  # -t DIR : make links in target directory DIR
+  # --target-directory=DIR : make links in target directory DIR
 }
 
 destdir=~
