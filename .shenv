@@ -1,7 +1,7 @@
 # Global aliases and environment settings file
 
 # make local link
-. ~/.makelocallink
+~/.makelocallink
 
 # Set paths
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
