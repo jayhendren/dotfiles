@@ -1,3 +1,4 @@
+#!/bin/bash
 # create /tmp symlink for local software
 target=~/local
 link=/tmp/.hendrenj-local
