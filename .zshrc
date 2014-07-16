@@ -1,6 +1,3 @@
-# source environment settings
-if [ -f ~/.shenv ]; then source ~/.shenv; fi
-
 # start with grml config
 source ~/.zsh/grml/zshrc
 
