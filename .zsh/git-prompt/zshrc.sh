@@ -39,7 +39,7 @@ function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
 
     local gitstatus="$__GIT_PROMPT_DIR/gitstatus.py"
-    _GIT_STATUS=`python ${gitstatus}`
+    _GIT_STATUS=`python2 ${gitstatus}`
     __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
 	GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
 	GIT_REMOTE=$__CURRENT_GIT_STATUS[2]
@@ -49,6 +49,19 @@ function update_current_git_vars() {
 	GIT_UNTRACKED=$__CURRENT_GIT_STATUS[6]
 	GIT_CLEAN=$__CURRENT_GIT_STATUS[7]
 }
+
+# Default values for the appearance of the prompt. Configure at will.
+ZSH_THEME_GIT_PROMPT_PREFIX="("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}●"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}✖"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}✚"
+ZSH_THEME_GIT_PROMPT_REMOTE=""
+ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
+
 
 
 git_super_status() {
@@ -78,17 +91,4 @@ git_super_status() {
 	  echo "$STATUS"
 	fi
 }
-
-# Default values for the appearance of the prompt. Configure at will.
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}●"
-ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}✖"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}✚"
-ZSH_THEME_GIT_PROMPT_REMOTE=""
-ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
-
 
