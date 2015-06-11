@@ -20,7 +20,37 @@ autocmd BufRead,BufNew *.md set filetype=markdown " highlight .md files as markd
 "set paste           " set paste behavior by default
 "set number         " Show line numbers on the left
 
+"highlight columnns > 79 for good coding style
+"let &colorcolumn=join(range(80,9999),",")
+
 map <F3> !}fmt<CR>  " Format Paragraph
 
 map <F4> :w:!aspell check % :e!
 
+" filetype plugin on
+
+" set markdown folding levels
+function! MarkdownLevel()
+    if getline(v:lnum) =~ '^# .*$'
+        return ">1"
+    endif
+    if getline(v:lnum) =~ '^## .*$'
+        return ">2"
+    endif
+    if getline(v:lnum) =~ '^### .*$'
+        return ">3"
+    endif
+    if getline(v:lnum) =~ '^#### .*$'
+        return ">4"
+    endif
+    if getline(v:lnum) =~ '^##### .*$'
+        return ">5"
+    endif
+    if getline(v:lnum) =~ '^###### .*$'
+        return ">6"
+    endif
+    return "="
+endfunction
+
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()
+au BufEnter *.md setlocal foldmethod=expr
