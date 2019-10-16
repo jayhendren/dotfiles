@@ -12,6 +12,9 @@ recent () {
 }
 
 # Set aliases
+alias sudo="sudo -E"
+alias ag="ag --hidden --ignore .git"
+alias gitls="git ls-files -c -o --exclude-standard | sort"
 
 # Source any local environment settings
 if [ -f ~/.shenv-local ]; then source ~/.shenv-local; fi

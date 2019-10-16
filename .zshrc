@@ -11,6 +11,12 @@ promptinit
 
 compinit -C
 
+# yes, I want to show duplicates in my history
+unsetopt histignorealldups
+
+# also, get me a nice history alias
+alias h="history -i -D 0"
+
 # case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
  

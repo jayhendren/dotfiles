@@ -16,8 +16,13 @@ set scrolloff=5     " Keep 5 lines (top/bottom) for scope
 set sidescrolloff=5 " Keep 5 lines at the size
 set hlsearch        " highlight search results
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o    " Turn off autocommenting
-autocmd BufRead,BufNew *.md set filetype=markdown " highlight .md files as markdown
-"set paste           " set paste behavior by default
+autocmd BufRead,BufNew *.md set filetype=markdown
+autocmd BufRead,BufNew Berksfile set filetype=ruby
+autocmd BufRead,BufNew Vagrantfile set filetype=ruby
+autocmd BufRead,BufNew Thorfile set filetype=ruby
+autocmd BufRead,BufNew Jenkinsfile set filetype=groovy
+set paste           " set paste behavior by default
+set ruler           " show line & column numbers
 "set number         " Show line numbers on the left
 
 "highlight columnns > 79 for good coding style
@@ -27,7 +32,7 @@ map <F3> !}fmt<CR>  " Format Paragraph
 
 map <F4> :w:!aspell check % :e!
 
-" filetype plugin on
+filetype plugin on
 
 " set markdown folding levels
 function! MarkdownLevel()
@@ -54,3 +59,9 @@ endfunction
 
 au BufEnter *.md setlocal foldexpr=MarkdownLevel()
 au BufEnter *.md setlocal foldmethod=expr
+
+" macros
+let @m="iJay HendrenOIT | Systems Engineering | Unix Team(303) 492-6096"
+
+" disable mouse input
+set mouse=
