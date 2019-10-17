@@ -3,6 +3,8 @@
 
 from __future__ import print_function
 
+import re
+
 # change those symbols to whatever you prefer
 symbols = {'ahead of': '↑', 'behind': '↓', 'prehash':':'}
 
@@ -14,7 +16,7 @@ branch, error = gitsym.communicate()
 
 error_string = error.decode('utf-8')
 
-if 'fatal: not a git repository' in error_string:
+if re.match(r'fatal: [Nn]ot a git repository', error_string):
 	sys.exit(0)
 
 branch = branch.strip()[11:]
