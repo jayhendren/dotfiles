@@ -2,7 +2,7 @@
 
 # Set paths
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH=/usr/local/apache/bin:/usr/local/gnu/bin:/usr/local/python/bin:/usr/local/durm/bin:/usr/local/adduser/bin:/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/ldap-user-tools/bin:/usr/local/apache/bin:/usr/local/gnu/bin:/usr/local/python/bin:/usr/local/durm/bin:/usr/local/adduser/bin:/usr/local/mysql/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 
 export MANPATH=$HOME/local/share/man:/usr/share/man:$MANPATH
@@ -12,7 +12,6 @@ recent () {
 }
 
 # Set aliases
-alias sudo="sudo -E"
 alias ag="ag --hidden --ignore .git"
 alias gitls="git ls-files -c -o --exclude-standard | sort"
 
