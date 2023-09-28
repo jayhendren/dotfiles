@@ -10,6 +10,9 @@ if [ -f ~/.shenv ]; then source ~/.shenv; fi
 
 which zsh >/dev/null 2>&1 && exec zsh
 
+# vi keybindings
+set -o vi
+
 HISTTIMEFORMAT="%F %T %Z "
 HISTFILE="${HOME}/.bash_histories/$(hostname -f)"
 
