@@ -19,5 +19,9 @@ HISTFILE="${HOME}/.bash_histories/$(hostname -f)"
 [ ! -f "$HISTFILE" ] && touch "$HISTFILE"
 
 alias ls='ls --color=auto'
-# PS1='[\u@\h \W]\$ '
-PS1='\e[0;37m[\e[0;34m\h \e[0;32m\w\e[0;37m]\e[0;34m\$\e[0m '
+
+white='\[\e[0;37m\]'
+blue='\[\e[0;34m\]'
+green='\[\e[0;32m\]'
+reset='\[\e[0m\]'
+PS1="${white}[${blue}\h ${green}\w${white}]${blue}\$${reset} "
